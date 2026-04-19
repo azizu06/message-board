@@ -9,13 +9,13 @@
   <body class="flex flex-col gap-4">
     <div class="flex w-full justify-between">
       <h1>Message Board</h1>
-      <p><i data-lucide="user"></i><%=messages.length%> messages</p>
+      <p><i data-lucide="users"></i><%=messages.length%> messages</p>
     </div>
     <a href="/new" class="flex gap-2 p-2"><i data-lucide="plus"></i>Add Message</a>
     <div class="flex flex-col gap-4">
-      <% messages.map((msg) => { %>
-        <%- inlcude("msg", {msg})%>
-      <% }) %>
+      <% messages.forEach((msg) => { %>
+        <%- include("msg", {msg});%>
+      <% }); %>
     </div>
 
     <script src="https://unpkg.com/lucide@latest"></script>
