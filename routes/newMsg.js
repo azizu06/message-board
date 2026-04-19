@@ -7,8 +7,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { author, msg } = req.body;
-  msgs.push({ text: msg, user: author, added: new Date() });
+  const { author, message } = req.body;
+  msgs.push({ text: message, user: author, added: new Date() });
   res.redirect("/");
 });
 
