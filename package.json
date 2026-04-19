@@ -4,7 +4,7 @@
   "description": "Creating mini message board to practice express and ejs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node routes/app.js",
     "dev:server": "nodemon routes/app.js",
     "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css",
     "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
