@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node routes/app.js"
+    "dev": "nodemon routes/app.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "dependencies": {
     "ejs": "^5.0.2",
     "express": "^5.2.1",
-    "lucide-react": "^1.8.0"
+    "lucide-react": "^1.8.0",
+    "nodemon": "^3.1.14"
   }
 }
