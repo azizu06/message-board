@@ -1,33 +1,42 @@
-<form method="POST" action="/new" class="flex flex-col gap-6">
-  <div class="flex w-full justify-between">
-    <h1>Create Message</h1>
-    <i data-lucide="x"></i>
-  </div>
-  <div class="flex flex-col gap-4">
-    <div class="flex flex-col gap-1">
-      <label for="author">Name</label>
-      <input
-        type="text"
-        name="author"
-        id="author"
-        placeholder="Enter your name"
-        required
-      />
-    </div>
-    <div class="flex flex-col gap-1">
-      <label for="message">Message</label>
-      <textarea
-        name="message"
-        id="message"
-        placeholder="Enter your message"
-        required
-      ></textarea>
-    </div>
-    <div class="flex w-full justify-between">
-      <a href="/" class="p-2">Close</a>
-      <button type="submit" class="p-2">
-        <i data-lucide="send"></i>Send Message
-      </button>
-    </div>
-  </div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>New Message</title>
+  </head>
+  <body class="flex justify-center border-amber-500">
+    <form method="POST" action="/new" class="flex flex-col gap-6">
+      <div class="flex w-full justify-between">
+        <h1>Create Message</h1>
+        <a href="/"><i data-lucide="x"></i></a>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <label for="author">Name</label>
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Enter your message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="p-2 flex w-full justify-between">
+          <i data-lucide="send"></i>Send Message
+        </button>
+      </div>
+    </form>
+    <%- include("lucide") %>
+  </body>
+</html>

@@ -9,10 +9,12 @@ app.use(express.urlencoded({ extended: true }));
 
 const msgRouter = require("./newMsg");
 const indexRouter = require("./index");
+const detailRouter = require("./msgDetail");
 const PORT = 3000;
 
 app.use("/", indexRouter);
 app.use("/new", msgRouter);
+app.use("/msgs", detailRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
