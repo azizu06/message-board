@@ -15,7 +15,7 @@ const messages = [
 ];
 
 router.get("/", (req, res) => {
-  res.render("index", { messages: msgs });
+  res.render("index", { messages });
 });
 
 router.get("/new", (req, res) => {
