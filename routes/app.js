@@ -1,20 +1,19 @@
 const path = require("node:path");
-const app = require("express");
+const express = require("express");
+const app = express();
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.render("index", { messages: messages });
+const msgRouter = require("./newMsg");
+const indexRouter = require("./index");
+const PORT = 3000;
+
+app.use("/", indexRouter);
+app.use("/new", msgRouter);
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
