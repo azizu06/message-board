@@ -1,0 +1,17 @@
+<div class="flex flex-col gap-4 p-3">
+  <div class="flex justify-between">
+    <div
+      class="flex border rounded-full bg-white h-10 w-10 items-center justify-center"
+    >
+      <span><%= msg.user.charAt(0).toUpperCase() %></span>
+    </div>
+    <a href="/msgs/<%= index %>"><i data-lucide="eye"></i></a>
+  </div>
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-2">
+      <p><%= msg.user %></p>
+      <p><%= msg.added %></p>
+    </div>
+    <p><%= msg.text %></p>
+  </div>
+</div>
