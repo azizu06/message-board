@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Message Detail</title>
+  </head>
+  <body>
+    <div class="flex flex-col gap-5 p-3">
+      <div class="flex w-full justify-between">
+        <div class="border rounded-full bg-white">
+          <span><%= msg.user.charAt(0)%></span>
+        </div>
+        <a href="/"><i data-lucide="x"></i></a>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="flex gap-2">
+          <p><%= msg.user %></p>
+          <p><%= msg.added %></p>
+        </div>
+        <p><%= msg.text %></p>
+      </div>
+    </div>
+    <%- include("lucide") %>
+  </body>
+</html>
