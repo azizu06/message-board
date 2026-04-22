@@ -1,50 +1,29 @@
 require("dotenv").config();
 const { Client } = require("pg");
-const connectionString =
-  process.env.POSTGRES_DIRECT_URL ||
-  process.env.POSTGRES_URL_NON_POOLING ||
-  process.env.POSTGRES_URL;
-
 const SQL = `
-CREATE TABLE IF NOT EXISTS messages (
+DROP TABLE IF EXISTS messages;
+
+CREATE TABLE messages (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    text TEXT NOT NULL,
-    username VARCHAR(255) NOT NULL,
+    text TEXT,
+    username VARCHAR(255),
     added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-INSERT INTO messages (text, username)
-SELECT seed.text, seed.username
-FROM (
-    VALUES
-        ('Hi chud', 'Aziz'),
-        ('AI is gonna take ur job', 'Techbro')
-) AS seed(text, username)
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM messages
-    WHERE messages.text = seed.text
-      AND messages.username = seed.username
-);
+INSERT INTO messages (text,username)
+VALUES
+    ('Hi chud', 'Aziz'),
+    ('AI is gonna take ur job', 'Techbro');
 `;
 
 const main = async () => {
   const client = new Client({
-    connectionString,
+    connectionString: process.env.POSTGRES_URL,
     ssl: {
       rejectUnauthorized: false,
     },
   });
-
-  try {
-    await client.connect();
-    await client.query(SQL);
-    console.log("Database initialized successfully.");
-  } catch (err) {
-    console.error("Database initialization failed:", err);
-    process.exitCode = 1;
-  } finally {
-    await client.end();
-  }
+  await client.connect();
+  await client.query(SQL);
+  await client.end();
 };
 main();
