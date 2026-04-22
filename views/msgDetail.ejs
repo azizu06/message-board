@@ -26,7 +26,7 @@
               <h1
                 class="mt-2 text-3xl font-semibold tracking-tight text-slate-950"
               >
-                Posted by <%= msg.user %>
+                Posted by <%= msg.username %>
               </h1>
             </div>
 
@@ -45,12 +45,12 @@
             <div
               class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-cyan-500 text-lg font-semibold text-white shadow-sm shadow-cyan-200"
             >
-              <span><%= msg.user.charAt(0).toUpperCase() %></span>
+              <span><%= msg.username.charAt(0).toUpperCase() %></span>
             </div>
 
             <div class="space-y-2">
               <p class="text-lg font-semibold tracking-tight text-slate-950">
-                <%= msg.user %>
+                <%= msg.username %>
               </p>
               <p class="text-sm text-slate-500">
                 <%= new Date(msg.added).toLocaleString("en-US", {

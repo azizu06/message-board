@@ -6,13 +6,13 @@
       <div
         class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 text-sm font-semibold text-white shadow-sm shadow-emerald-200"
       >
-        <span><%= msg.user.charAt(0).toUpperCase() %></span>
+        <span><%= msg.username.charAt(0).toUpperCase() %></span>
       </div>
 
       <div class="space-y-3">
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
           <p class="text-base font-semibold tracking-tight text-slate-950">
-            <%= msg.user %>
+            <%= msg.username %>
           </p>
           <p class="text-sm text-slate-500">
             <%= new Date(msg.added).toLocaleString("en-US", {
@@ -32,7 +32,7 @@
     </div>
 
     <a
-      href="/msgs/<%= index %>"
+      href="/msgs/<%= msg.id %>"
       class="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100 hover:text-slate-950"
       aria-label="Open message details"
     >

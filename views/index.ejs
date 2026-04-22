@@ -42,8 +42,8 @@
 
         <div class="bg-slate-50/70 px-5 py-6 sm:px-8 sm:py-8">
           <div class="grid gap-4">
-            <% messages.forEach((msg, index) => { %>
-              <%- include("msgCard", { msg, index }); %>
+            <% messages.forEach((msg) => { %>
+              <%- include("msgCard", { msg }); %>
             <% }); %>
           </div>
         </div>
