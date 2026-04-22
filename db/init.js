@@ -1,11 +1,13 @@
 require("dotenv").config();
 const { Client } = require("pg");
 const SQL = `
-CREATE TABLE IF NOT EXISTS messages (
+DROP TABLE IF EXISTS messages;
+
+CREATE TABLE messages (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     text TEXT,
     username VARCHAR(255),
-    added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO messages (text,username)
 VALUES

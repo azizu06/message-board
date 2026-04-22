@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node routes/app.js",
+    "db:init": "node db/init.js",
     "dev:server": "nodemon routes/app.js",
     "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css",
     "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
