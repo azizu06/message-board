@@ -15,8 +15,8 @@ const validateMsgAdd = [
   body("message")
     .trim()
     .escape()
-    .isLength({ max: 200 })
-    .withMessage("Message must be a max of 200 characters."),
+    .isLength({ min: 1, max: 200 })
+    .withMessage("Message must be between 1 and 200 characters."),
 ];
 
 exports.getMsgs = async (req, res) => {
@@ -25,7 +25,7 @@ exports.getMsgs = async (req, res) => {
 };
 
 exports.createMsgGet = (req, res) => {
-  res.render("form");
+  res.render("form", { errors: [], values: {} });
 };
 
 exports.createMsgPost = [
@@ -33,7 +33,9 @@ exports.createMsgPost = [
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(404).render("form", { errors: errors.array() });
+      return res
+        .status(404)
+        .render("form", { errors: errors.array(), values: req.body });
     }
     const { author, message } = matchedData(req);
     await db.insertMsg(message, author);
