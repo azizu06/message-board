@@ -5,10 +5,10 @@ exports.getAll = async () => {
   return rows;
 };
 
-exports.insertMsg = async (text, user) => {
+exports.insertMsg = async (text, name) => {
   await pool.query("INSERT INTO messages(text,username) VALUES($1,$2)", [
     text,
-    user,
+    name,
   ]);
 };
 
@@ -17,9 +17,4 @@ exports.findMsg = async (id) => {
     id,
   ]);
   return rows[0];
-};
-
-exports.msgCnt = async () => {
-  const { rows } = await pool.query("SELECT COUNT(*) FROM messages");
-  return Number(rows[0].count);
 };
