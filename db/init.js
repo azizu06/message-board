@@ -17,7 +17,7 @@ VALUES
 
 const main = async () => {
   const client = new Client({
-    connectionString: process.env.DB_URL,
+    connectionString: process.env.POSTGRES_URL,
     ssl: {
       rejectUnauthorized: false,
     },
